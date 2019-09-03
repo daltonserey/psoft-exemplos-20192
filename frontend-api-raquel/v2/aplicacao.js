@@ -12,7 +12,7 @@ function fetch_disciplinas(dados) {
         $disciplinas.appendChild($p);
         $p.innerText = "Disciplina: " + disciplinas[i].nome + ", nota: " + disciplinas[i].nota;
     });
-    $mensagem.innerText = '
+    setTimeout(function () {$mensagem.innerText = '';}, 500);
 }
 
 function save() {
