@@ -1,5 +1,6 @@
 let disciplinas = [];
 const API = 'https://lab01-projsw-ufcg.herokuapp.com/api';
+let $mensagem = document.querySelector("#mensagem");
 
 function fetch_disciplinas(dados) {
     disciplinas = dados;
@@ -11,12 +12,12 @@ function fetch_disciplinas(dados) {
         $disciplinas.appendChild($p);
         $p.innerText = "Disciplina: " + disciplinas[i].nome + ", nota: " + disciplinas[i].nota;
     });
+    $mensagem.innerText = '
 }
 
 function save() {
     let nome = document.querySelector("#nome").value;
     let nota = document.querySelector("#nota").value;
-    let $mensagem = document.querySelector("#mensagem");
     fetch(API + '/disciplinas', {
       'method': 'POST',
       'body': `{"nome": "${nome}", "nota": ${nota}}`,
@@ -40,6 +41,7 @@ function save() {
     console.log("inicando execução");
     let $button = document.querySelector("button");
     $button.addEventListener('click', save);
+    $mensagem.innerText = 'buscando disciplinas...'
     fetch(API + '/disciplinas')
     .then(r => r.json())
     .then(fetch_disciplinas)
