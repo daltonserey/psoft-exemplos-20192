@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    html {
+      padding: 0;
+      margin: 0;
+      background: gray;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: grid;
+      background: lightgray;
+      grid-template-columns: 1fr 5fr;
+      grid-template-rows: 1f;
+    }
+    section {
+      padding: 6px;
+    }
+    section p {
+      font-size: 85%;
+      color: #77a;
+    }
+    iframe {
+      background: white;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <button onclick="versao('v0')">v0</button>
+    <a href="v0">v0</a><br>
+    <button onclick="versao('v1')">v1</button>
+    <a href="v1">v1</a><br>
+    <button onclick="versao('v2')">v2</button>
+    <a href="v2">v2</a><br>
+    <div></div>
+  </section>
+  <iframe id="f" src="" frameborder="0"></iframe>
+
+  <script>
+    let $f = document.querySelector("#f");
+    let $comments = document.querySelector("div");
+    let texto = {};
+    texto['v0'] = `
+      <p>Esta é a versão que concluímos na
+      sala de aula.</p> <p>O app lê
+      um arquivo <code>disciplinas.json</code>
+      e não a API REST! O POST, contudo, é
+      feito na API e a nova disciplina é
+      adicionada ao modelo local do conjunto
+      de disciplinas</p>`;
+    texto['v1'] = `
+      <p>Esta versão é a primeira plenamente
+      funcional (ainda que não seja muito bonita).</p>
+      <p>O app busca a lista inicial na API.<p>
+      <p>Adicionei uma linha horizontal para marcar
+      melhor a listagem de disciplinas. Quando
+      a lista está vazia, isso ajuda o usuário
+      a perceber isso (o conhecido <em>empty state</em>).</p>
+      `;
+    texto['v2'] = `
+      <p>Refactoring de v1. O código JavaScript
+      foi reescrito e agora
+      se articula em torno de 
+      duas variáveis no escopo do script e três funções. Uma função
+      para buscar e listar as disciplinas, outra para salvar
+      uma nova disciplina e adicioná-la à listagem e uma função
+      de inicialização.</p>
+      <p>Observe que não há uma função <em>main</em> em JavaScript
+      que será automaticamente invocada. Observe como o código da função
+      de inicialização foi escrito, para garantir que seja
+      invocada.</p>
+      <p>Leia o código e procure entender como o
+      app funciona.<p>
+      `;
+    function versao(v) {
+      $f.src = v;
+      $comments.innerHTML = texto[v];
+    }
+  </script>
+</body>
+</html>
