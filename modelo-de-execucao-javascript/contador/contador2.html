@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h2>Um simples contador</h2>
+
+  <p>Problema: sem usar <code>setInterval</code>, escreva o código JavaScript que exiba um simples contador.</p>
+  
+  <h1></h1>
+
+  <script>
+    let $contador = document.querySelector('h1');
+    let contador = 0;
+    function conta() {
+      contador += 1;
+      $contador.innerText = contador;
+    }
+    setInterval(conta, 0);
+  </script>
+
+</body>
+</html>
