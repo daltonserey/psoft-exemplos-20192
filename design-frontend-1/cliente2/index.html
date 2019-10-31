@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header><h1>CABEÇALHO</h1></header>
+  <div id="viewer"></div>
+  <footer><p>RODAPÉ</p></footer>
+
+  <template id="view1">
+    <h1>view 1</h1>
+    <p>user: <span id="user"></span></p>
+    <p><a href="#view2">view 2</a></p>
+  </template>
+
+  <template id="view2">
+    <h1>view 2</h1>
+    <p>user: <span id="user"></span></p>
+    <p><a href="#view1">view 1</a></p>
+  </template>
+</body>
+
+<script src="app.js"></script>
+</html>
