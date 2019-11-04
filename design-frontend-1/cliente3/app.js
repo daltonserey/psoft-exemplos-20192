@@ -19,17 +19,17 @@ async function fetch_user() {
   return data;
 }
 
-window.templates = null;
+let template1, template2;
 async function fetch_templates() {
   let html_templates = await (fetch('templates.html').then(r => r.text()));
   let e = document.createElement("div");
   e.innerHTML = html_templates;
-  window.template1 = e.querySelector('#view1');
-  window.template2 = e.querySelector('#view2');
+  template1 = e.querySelector('#view1');
+  template2 = e.querySelector('#view2');
 }
 
 function view1() {
-  let $template = window.template1;
+  let $template = template1;
   $viewer.innerHTML = $template.innerHTML;
 
   let $a = document.querySelector('a');
@@ -40,7 +40,7 @@ function view1() {
 }
 
 function view2() {
-  let $template = window.template2
+  let $template = template2
   $viewer.innerHTML = $template.innerHTML;
 
   let $a = document.querySelector('a');
