@@ -2,8 +2,8 @@ let username;
 let $viewer = document.querySelector('#viewer');
 
 (async function main() {
-  username = (await fetch_user())["nome"];
-  await fetch_templates();
+  let data = await Promise.all([fetch_user(), fetch_templates()]);
+  username = data[0]['nome'];
 
   // roteamento
   let hash = location.hash;
